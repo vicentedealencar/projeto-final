@@ -159,6 +159,8 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Content Include="Content\js\app.js" />
+    <Content Include="Content\css\app.css" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -168,6 +170,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\lib\angular\angular-cookies.js" />
+    <Content Include="Content\lib\angular\angular-cookies.min.js" />
+    <Content Include="Content\lib\angular\angular-loader.js" />
+    <Content Include="Content\lib\angular\angular-loader.min.js" />
+    <Content Include="Content\lib\angular\angular-resource.js" />
+    <Content Include="Content\lib\angular\angular-resource.min.js" />
+    <Content Include="Content\lib\angular\angular-sanitize.js" />
+    <Content Include="Content\lib\angular\angular-sanitize.min.js" />
+    <Content Include="Content\lib\angular\angular.js" />
+    <Content Include="Content\lib\angular\angular.min.js" />
+    <Content Include="Content\lib\angular\version.txt" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -197,7 +210,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

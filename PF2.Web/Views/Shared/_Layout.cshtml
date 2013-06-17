@@ -1,12 +1,16 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+  <meta charset="utf-8">
+  <title>@ViewBag.Title</title>
+  <link rel="stylesheet" href="@Url.Content("~/Content/css/app.css")"/>
 </head>
-<body>
+<body ng-app="pf2">
+
     @RenderBody()
+
+    <script src="@Url.Content("~/Content/lib/angular/angular.js")"></script>
+    <script src="@Url.Content("~/Content/js/app.js")"></script>
 
     @RenderSection("scripts", required: false)
 </body>
