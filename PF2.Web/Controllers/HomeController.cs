@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AttributeRouting.Web.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,7 @@ namespace PF2.Web.Controllers
 {
     public class HomeController : Controller
     {
+        [GET("")]
         public ActionResult Index()
         {
             return View();
