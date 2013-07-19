@@ -20,7 +20,18 @@ namespace PF2.Web.Controllers
         public ActionResult OfficialeBayTime()
         {
             var eBayService = new eBayService();
+
             return View(eBayService.OfficialTime());
         }
+
+        [GET("/eBayProduct/{productId}")]
+        public ActionResult eBayProduct(string productId)
+        {
+            //g930 -> 110119822551
+            var eBayService = new eBayService();
+
+            return Json(eBayService.FindProduct(productId) ,JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

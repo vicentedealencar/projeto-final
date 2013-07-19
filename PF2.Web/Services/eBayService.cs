@@ -1,5 +1,7 @@
 ﻿using eBay.Service.Call;
 using eBay.Service.Core.Sdk;
+using eBay.Service.Core.Soap;
+using PF2.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -30,5 +32,36 @@ namespace PF2.Web.Services
             var officialTimeCall = new GeteBayOfficialTimeCall(this.ApiContext);
             return officialTimeCall.GeteBayOfficialTime();
         }
+
+        public Product FindProduct(string productId)
+        {
+            var getItemCall = new GetItemCall(this.ApiContext);
+            var item = getItemCall.GetItem(productId);
+
+            return new Product()
+            {
+                Title = item.Title,
+                SubTitle = item.SubTitle,
+                BuyPrice = item.BuyItNowPrice.Value,
+                DepthInCm = NormalizeMeasure(item.ShippingPackageDetails.PackageDepth),
+                LengthInCm = NormalizeMeasure(item.ShippingPackageDetails.PackageLength),
+                WidthInCm = NormalizeMeasure(item.ShippingPackageDetails.PackageWidth),
+                WeightInKg = NormalizeMeasure(item.ShippingPackageDetails.WeightMajor),
+            };
+        }
+
+        private double NormalizeMeasure(MeasureType measure)
+        {
+            var unitFactors = new Dictionary<string,double>
+            {
+                {"cm", 1},
+                {"m", 1/100},
+                {"kg", 1},
+                {"g", 1000},
+
+            };
+            return (double)measure.Value * unitFactors[measure.unit];
+        }
+
     }
 }
