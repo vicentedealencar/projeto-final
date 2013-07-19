@@ -56,6 +56,12 @@
     <Reference Include="AttributeRouting.Web.Mvc">
       <HintPath>..\packages\AttributeRouting.3.5.6\lib\net40\AttributeRouting.Web.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="eBay.Service">
+      <HintPath>..\packages\eBay.3.805.0.1\lib\eBay.Service.dll</HintPath>
+    </Reference>
+    <Reference Include="eBay.Service.SDK.Attribute">
+      <HintPath>..\packages\eBay.3.805.0.1\lib\eBay.Service.SDK.Attribute.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -175,6 +181,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Services\eBayService.cs" />
     <Content Include="Content\js\app.js" />
     <Content Include="Content\css\app.css" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -238,6 +245,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\OfficialeBayTime.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
