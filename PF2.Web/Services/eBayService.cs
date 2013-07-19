@@ -52,14 +52,18 @@ namespace PF2.Web.Services
 
         private double NormalizeMeasure(MeasureType measure)
         {
+            if (measure == null)
+                return -1;
+
             var unitFactors = new Dictionary<string,double>
             {
                 {"cm", 1},
                 {"m", 1/100},
                 {"kg", 1},
                 {"g", 1000},
-
+                {"lbs", 0.453592}
             };
+
             return (double)measure.Value * unitFactors[measure.unit];
         }
 
