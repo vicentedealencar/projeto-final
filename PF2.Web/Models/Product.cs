@@ -9,6 +9,7 @@ namespace PF2.Web.Models
     {
         public string Title { get; set; }
         public string SubTitle { get; set; }
+        public string Description { get; set; }
         public double BuyPrice { get; set; }
         public double DepthInCm { get; set; }
         public double LengthInCm { get; set; }

@@ -38,11 +38,15 @@ namespace PF2.Web.Services
             var getItemCall = new GetItemCall(this.ApiContext);
             var item = getItemCall.GetItem(productId);
 
+            var price = item.BuyItNowPrice.Value > 0 ? item.BuyItNowPrice.Value :
+                item.SellingStatus.CurrentPrice.Value;
+
             return new Product()
             {
                 Title = item.Title,
                 SubTitle = item.SubTitle,
-                BuyPrice = item.BuyItNowPrice.Value,
+                Description = item.Description,
+                BuyPrice = price,
                 DepthInCm = NormalizeMeasure(item.ShippingPackageDetails.PackageDepth),
                 LengthInCm = NormalizeMeasure(item.ShippingPackageDetails.PackageLength),
                 WidthInCm = NormalizeMeasure(item.ShippingPackageDetails.PackageWidth),
@@ -58,10 +62,11 @@ namespace PF2.Web.Services
             var unitFactors = new Dictionary<string,double>
             {
                 {"cm", 1},
+                {"inches", 2.54},
                 {"m", 1/100},
                 {"kg", 1},
                 {"g", 1000},
-                {"lbs", 0.453592}
+                {"lbs", 0.453592},
             };
 
             return (double)measure.Value * unitFactors[measure.unit];
