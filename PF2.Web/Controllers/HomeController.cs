@@ -10,6 +10,13 @@ namespace PF2.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private eBayService eBayService { get; set; }
+
+        public HomeController()
+        {
+            eBayService = new eBayService();
+        }
+
         [GET("")]
         public ActionResult Index()
         {
@@ -19,8 +26,6 @@ namespace PF2.Web.Controllers
         [GET("/OfficialeBayTime")]
         public ActionResult OfficialeBayTime()
         {
-            var eBayService = new eBayService();
-
             return View(eBayService.OfficialTime());
         }
 
@@ -28,9 +33,14 @@ namespace PF2.Web.Controllers
         public ActionResult eBayProduct(string productId)
         {
             //g930 -> 110119822551
-            var eBayService = new eBayService();
-
+            //penny -> 110119905920
             return Json(eBayService.FindProduct(productId) ,JsonRequestBehavior.AllowGet);
+        }
+
+        [GET("/eBayPurchase/{productId}")]
+        public ActionResult eBayPurchase(string productId)
+        {
+            return Json(eBayService.PurchaseProduct(productId), JsonRequestBehavior.AllowGet);
         }
 
     }
