@@ -40,7 +40,7 @@ namespace PF2.Web.Controllers
         [GET("/eBayPurchase/{productId}")]
         public ActionResult eBayPurchase(string productId)
         {
-            return Json(eBayService.PurchaseProduct(productId), JsonRequestBehavior.AllowGet);
+            return Json(eBayService.PurchaseProduct(productId, Request.UserHostAddress), JsonRequestBehavior.AllowGet);
         }
 
     }

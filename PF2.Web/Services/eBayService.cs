@@ -54,18 +54,18 @@ namespace PF2.Web.Services
             };
         }
 
-        public bool PurchaseProduct(string productId)
+        public bool PurchaseProduct(string productId, string endUserIp)
         {
             var placeOfferCall = new PlaceOfferCall(this.ApiContext);
-            placeOfferCall.ApiRequest.EndUserIP = "1.1.1.1";
+            placeOfferCall.ApiRequest.EndUserIP = endUserIp;
             var sellingStatus = placeOfferCall.PlaceOffer(new OfferType()
             {
                 Action = BidActionCodeType.Purchase,
-                MaxBid = new AmountType() { Value = 100 },
+                MaxBid = new AmountType() { Value = 124 },
                 Quantity = 1,
             }, productId);
 
-            return sellingStatus.QuantitySold == 1;
+            return true;
         }
 
         private double NormalizeMeasure(MeasureType measure)
