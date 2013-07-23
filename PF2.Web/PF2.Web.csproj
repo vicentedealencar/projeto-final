@@ -181,8 +181,9 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\LojaController.cs" />
+    <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\StoreVM.cs" />
     <Compile Include="Services\eBayService.cs" />
     <Content Include="Content\js\app.js" />
     <Content Include="Content\css\app.css" />
@@ -253,7 +254,19 @@
     <Content Include="Views\Home\OfficialeBayTime.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Loja\Index.cshtml" />
+    <Content Include="Views\Store\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PF2.Data\PF2.Data.csproj">
+      <Project>{ddda62fa-9edd-4072-ab08-9e8786429e82}</Project>
+      <Name>PF2.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Store\StoreNotFound.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Store\Show.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

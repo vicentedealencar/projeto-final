@@ -1,0 +1,10 @@
+﻿@model List<StoreVM>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lojas</h2>
+
+@foreach (var store in Model) {
+    <a href="/Loja/@store.Id">@store.Name</a>
+}
