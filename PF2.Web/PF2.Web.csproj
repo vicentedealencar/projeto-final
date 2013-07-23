@@ -181,6 +181,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\LojaController.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Services\eBayService.cs" />
     <Content Include="Content\js\app.js" />
@@ -250,6 +251,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\OfficialeBayTime.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Loja\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
