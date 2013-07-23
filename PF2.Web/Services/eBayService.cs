@@ -58,12 +58,20 @@ namespace PF2.Web.Services
         {
             var placeOfferCall = new PlaceOfferCall(this.ApiContext);
             placeOfferCall.ApiRequest.EndUserIP = endUserIp;
-            var sellingStatus = placeOfferCall.PlaceOffer(new OfferType()
+
+            try
             {
-                Action = BidActionCodeType.Purchase,
-                MaxBid = new AmountType() { Value = 124 },
-                Quantity = 1,
-            }, productId);
+                var sellingStatus = placeOfferCall.PlaceOffer(new OfferType()
+                {
+                    Action = BidActionCodeType.Purchase,
+                    MaxBid = new AmountType() { Value = 124 },
+                    Quantity = 1,
+                }, productId);
+            }
+            catch
+            {
+                return false;
+            }
 
             return true;
         }
