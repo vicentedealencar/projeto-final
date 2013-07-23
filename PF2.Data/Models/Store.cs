@@ -11,5 +11,10 @@ namespace PF2.Data.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public List<Item> Items { get; set; }
+
+        public Store()
+        {
+            Items = new List<Item>();
+        }
     }
 }

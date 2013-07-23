@@ -9,15 +9,8 @@ using System.Web.Mvc;
 
 namespace PF2.Web.Controllers
 {
-    public class StoreController : Controller
+    public class StoreController : BaseController
     {
-        public MyContext db { get; set; }
-
-        public StoreController()
-        {
-            db = new MyContext();
-        }
-
         [GET("/Lojas")]
         public ActionResult Index()
         {
