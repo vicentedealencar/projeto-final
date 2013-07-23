@@ -18,7 +18,26 @@ namespace PF2.Data
                 new Store()
                 {
                     Id = 1,
-                    Name = "Guitarras"
+                    Name = "Guitarras",
+                    Items = new List<Item>()
+                    {
+                        new Item()
+                        {
+                            Id = 1,
+                            Price = 100.05,
+                            Title = "Les Paul",
+                            SubTitle = "Best guittar ever",
+                            Description = "You must buy that!"
+                        },
+                        new Item()
+                        {
+                            Id = 2,
+                            Price = 200.05,
+                            Title = "Flying V",
+                            SubTitle = "Rock it out!",
+                            Description = "Classic Gibson model"
+                        }
+                    }
                 }
             };
         }

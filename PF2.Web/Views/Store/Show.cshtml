@@ -4,3 +4,11 @@
 }
 
 <h2>@Model.Name</h2>
+
+@foreach (var item in Model.Items)
+{
+<a href="/Loja/@Model.Id/Item/@item.Id">@item.Title</a>
+<i>@item.SubTitle</i>
+@item.Price.ToString("C")
+<hr />
+}
