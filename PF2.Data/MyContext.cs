@@ -32,7 +32,7 @@ namespace PF2.Data
                         new Item()
                         {
                             Id = 2,
-                            Price = 200.05,
+                            Price = 201.10,
                             Title = "Flying V",
                             SubTitle = "Rock it out!",
                             Description = "Classic Gibson model"
