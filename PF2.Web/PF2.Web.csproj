@@ -183,6 +183,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
+    <Compile Include="Controllers\PayPalController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Models\ItemVM.cs" />
     <Compile Include="Models\Product.cs" />

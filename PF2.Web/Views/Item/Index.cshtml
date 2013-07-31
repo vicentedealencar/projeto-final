@@ -1,6 +1,7 @@
 ﻿@model ItemVM
 @{
     ViewBag.Title = "Index";
+    var baseUrl = Request.Url.Host + ":" + Request.Url.Port;
 }
 
 <h2>@Model.Title</h2>
@@ -8,26 +9,23 @@
 <h4>@Model.Price.ToString("C")</h4>
 <p>@Model.Description</p>
 
-absuri: @Request.Url.AbsoluteUri <br />
-host: @Request.Url.Host<br />
-
-<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
-    <input type="hidden" name="cmd" value="_cart">
-    <input type="hidden" name="business" value="D9PSP3DQFDCKG">
+rm 1 for GET
+rm 2 for POST
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+    <input type="hidden" name="cmd" value="_xclick">
+    <input type="hidden" name="business" value="CUH2HT8PHBPTL">
     <input type="hidden" name="lc" value="BR">
     <input type="hidden" name="item_name" value="@Model.Title">
     <input type="hidden" name="item_number" value="@Model.Id">
     <input type="hidden" name="amount" value="@Model.Price.ToString("F2", new System.Globalization.CultureInfo("en-US"))">
     <input type="hidden" name="currency_code" value="BRL">
-    <input type="hidden" name="button_subtype" value="products">
+    <input type="hidden" name="button_subtype" value="services">
     <input type="hidden" name="no_note" value="1">
     <input type="hidden" name="no_shipping" value="2">
     <input type="hidden" name="rm" value="2">
-    <input type="hidden" name="return" value="https://www.mystore.com/success">
-    <input type="hidden" name="cancel_return" value="https://www.mystore.com/cancel">
-    <input type="hidden" name="add" value="1">
-    <input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHosted">
+    <input type="hidden" name="return" value="@baseUrl/PayPal/Success">
+    <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted">
     <input type="hidden" name="paymentaction" value="authorization">
-    <input type="image" src="https://www.paypalobjects.com/pt_BR/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - A maneira mais fácil e segura de efetuar pagamentos online!">
+    <input type="image" src="https://www.paypalobjects.com/pt_BR/BR/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - A maneira mais fácil e segura de efetuar pagamentos online!">
     <img alt="" border="0" src="https://www.paypalobjects.com/pt_BR/i/scr/pixel.gif" width="1" height="1">
 </form>
