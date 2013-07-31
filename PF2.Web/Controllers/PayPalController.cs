@@ -10,9 +10,9 @@ namespace PF2.Web.Controllers
     public class PayPalController : BaseController
     {
         [POST("/PayPal/Success")]
-        public ActionResult Success()
+        public ActionResult Success(dynamic param)
         {
-            return Json(new{Form = Request.Form}, JsonRequestBehavior.AllowGet);
+            return Json(new{Form = Request.Form, Param = param}, JsonRequestBehavior.AllowGet);
         }
 
         [GET("/PayPal/Cancel")]
